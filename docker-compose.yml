@@ -11,7 +11,7 @@ services:
       - "80:80/tcp"
     environment:
       TZ: 'Europe/Berlin'
-      WEBPASSWORD: 'Pa$$w0rd'
+      WEBPASSWORD: 'piholepassword'
     volumes:
       - './etc-pihole/:/etc/pihole/'
       - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
