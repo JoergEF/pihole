@@ -20,8 +20,11 @@ adduser vagrant docker
 # Konfiguration der Namensauflösung
 systemctl disable --now systemd-resolved
 rm /etc/resolv.conf
-touch /etc/resolv.conf
+echo "nameserver 10.0.2.3" > /etc/resolv.conf
 
 # pihole - Container
-cd /vagrant && docker-compose up -d
+cd /vagrant
+[ -d etc-dnsmasq.d ] && mkdir etc-dnsmasq.d
+[ -d etc-pihole ] && mkdir etc-pihole
+docker-compose up -d
 
